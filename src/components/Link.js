@@ -37,13 +37,21 @@ class Link extends Component {
     update={(store, { data: { vote } }) =>
       this.props.updateStoreAfterVote(store, vote, this.props.link.id)
     }
+<<<<<<< HEAD
     >
+=======
+  >
+>>>>>>> 3b1f10d0758dcaff618bb5fb29218dff92c6e5e6
     {voteMutation => (
       <div className="ml1 gray f11" onClick={voteMutation}>
         ▲
       </div>
     )}
+<<<<<<< HEAD
     </Mutation>  
+=======
+  </Mutation>  
+>>>>>>> 3b1f10d0758dcaff618bb5fb29218dff92c6e5e6
   )}
 </div>
 

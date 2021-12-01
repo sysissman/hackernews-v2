@@ -1,6 +1,8 @@
+
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { APP_SECRET, getUserId } = require('../utils');
+<<<<<<< HEAD
 
 function post(parent, args, context, info) {
   const { userId } = context;
@@ -14,6 +16,21 @@ function post(parent, args, context, info) {
   });
   context.pubsub.publish('NEW_LINK', newLink);
 
+=======
+//import Search from '../../../src/components/Search'
+function post(parent, args, context, info) {
+  const { userId } = context;
+
+  const newLink = context.prisma.link.create({
+    data: {
+      url: args.url,
+      description: args.description,
+      postedBy: { connect: { id: userId } }
+    }
+  });
+  context.pubsub.publish('NEW_LINK', newLink);
+
+>>>>>>> 3b1f10d0758dcaff618bb5fb29218dff92c6e5e6
   return newLink;
 }
 
@@ -66,6 +83,7 @@ async function vote(parent, args, context, info) {
     }
   });
 
+<<<<<<< HEAD
   if (!Boolean(vote)) {
     const newVote = context.prisma.vote.create({
       data: {
@@ -79,6 +97,13 @@ async function vote(parent, args, context, info) {
     // throw new Error(
     //   `Already voted for link: ${args.linkId}`
     // );
+=======
+  if (Boolean(vote)) {
+    {Search}
+     /*throw new Error(
+      `Already voted for link: ${args.linkId}`
+    );*/
+>>>>>>> 3b1f10d0758dcaff618bb5fb29218dff92c6e5e6
   }
 }
 
